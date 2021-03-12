@@ -3,8 +3,8 @@ import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 
-function App() {
-  const [showTask, setShowTask] = useState(false)
+const App = () => {
+    const [showTask, setShowTask] = useState(false)
     const [tasks, setTasks] = useState([
     {
         id: 1,
@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="container">
-      <Header onAdd={() => setShowTask(!showTask)} showInsert={showTask}/>
+      <Header onAdd={ () => setShowTask(!showTask) } showInsert={showTask}/>
       {showTask && <AddTask onInsert={insertTask}/>}
       {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>) : ("Your schedule is clear")}
     </div>
